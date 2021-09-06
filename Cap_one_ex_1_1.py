@@ -1,5 +1,8 @@
 import collections
 
+from random import choice
+
+
 Card = collections.namedtuple("Card", ['rank', 'suit'])
 
 
@@ -16,3 +19,19 @@ class FrenchDeck:
 
     def __getitem__(self, position):
         return self._cards[position]
+
+
+suit_values = dict(spades=3, hearts=2, diamonds=1, clubs=0)
+
+
+def spades_high(card):
+    rank_value = FrenchDeck.ranks.index(card.rank)
+    return rank_value*len(suit_values) + suit_values[card.suit]
+
+
+deck = FrenchDeck()
+
+choice(deck)
+
+for card in deck:  # doctest: +ELLIPSIS
+    print(card)
