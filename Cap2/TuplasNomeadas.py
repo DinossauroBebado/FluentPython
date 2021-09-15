@@ -19,3 +19,6 @@ delhi_data = ('Delthi NCR', 'IN', 21.935, LatLong(28.613, 77.208))
 delhi = City._make(delhi_data)
 
 print(delhi._asdict())
+
+for key, value in delhi._asdict().items():
+    print(key + ":", value)
